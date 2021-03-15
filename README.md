@@ -30,8 +30,9 @@ mochat-cloud/docker-compose 下载目录为 /path/to/docker-compose；
 
 提示：
 ```
-api.mo.chat为占用域名，请避免使用
-.dev与.app域名为chrome域名，使用chrome时请避免使用
+1、api.mo.chat为占用域名，请避免使用
+2、.dev与.app域名为chrome域名，使用chrome时请避免使用
+3、使用非本地容器MySQL时，可以设置MYSQL_CONNECT_TYPE=cloud，并修改CLOUD_MYSQL_*相应属性即可
 ```
 
 ## 三、运行
