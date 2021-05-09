@@ -1,5 +1,5 @@
 # @mochat
-FROM node:10.13.0 AS build
+FROM node:10.17.0 AS build
 
 RUN yarn config set registry https://registry.npm.taobao.org
 
@@ -18,4 +18,4 @@ WORKDIR /opt/www
 # EXPOSE 80
 
 # dev
-CMD sh -c "yarn install && yarn run build"
+CMD sh -c "yarn install && yarn run dll && yarn run build"
