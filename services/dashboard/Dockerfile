@@ -1,5 +1,5 @@
 # @mochat
-FROM node:10.17.0 AS build
+FROM node:14.17.3 AS build
 
 RUN yarn config set registry https://registry.npm.taobao.org
 

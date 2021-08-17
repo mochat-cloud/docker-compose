@@ -26,6 +26,7 @@ mochat-cloud/docker-compose 下载目录为 /path/to/docker-compose；
 127.0.0.1 backend.test
 127.0.0.1 dashboard.test
 127.0.0.1 sidebar.test
+127.0.0.1 operation.test
 ```
 
 提示：
@@ -42,11 +43,12 @@ docker-compose build
 docker-compose up
 ```
 提示：
-- docker-compose up执行时，dashboard、sidebar、mochat_init容器运行完后会自动退出显示
+- docker-compose up执行时，dashboard、sidebar、operation、mochat_init容器运行完后会自动退出显示
 
 ```
 dashboard exited with code 0
 sidebar exited with code 0
+operation exited with code 0
 mochat_init exited with code 0
 ```
 这属于正常现象，不属于error
@@ -58,7 +60,8 @@ stone@localhost docker-compose % docker-compose ps
    Name                  Command               State                     Ports                  
 ------------------------------------------------------------------------------------------------
 backend       /bin/sh -c sh -c "composer ...   Up       0.0.0.0:9501->9501/tcp                  
-dashboard     /bin/sh -c sh -c "yarn ins ...   Exit 0                                           
+dashboard     /bin/sh -c sh -c "yarn ins ...   Exit 0        
+operation     /bin/sh -c sh -c "yarn ins ...   Exit 0                                           
 mochat_init   /bin/sh -c sh -c "/tmp/wai ...   Exit 0                                           
 mysql         docker-entrypoint.sh mysqld      Up       0.0.0.0:3306->3306/tcp, 33060/tcp       
 nginx         /docker-entrypoint.sh ngin ...   Up       0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp

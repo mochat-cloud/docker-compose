@@ -12,12 +12,14 @@ services:
       - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
       - ${DASHBOARD_DIR}:/opt/www/dashboard/:rw
       - ${SIDEBAR_DIR}:/opt/www/sidebar/:rw
+      - ${OPERATION_DIR}:/opt/www/operation/:rw
     environment:
       - TZ=Asia/Shanghai
     depends_on:
       - backend
       - dashboard
       - sidebar
+      - operation
 
   mysql:
     image: mysql:5.7
@@ -72,6 +74,7 @@ services:
       - ${API_SERVER_DIR}:/opt/www/api-server:rw
       - ${DASHBOARD_DIR}:/opt/www/dashboard/:rw
       - ${SIDEBAR_DIR}:/opt/www/sidebar/:rw
+      - ${OPERATION_DIR}:/opt/www/operation/:rw
     restart: on-failure
     depends_on:
       - mysql
@@ -94,6 +97,18 @@ services:
     container_name: sidebar
     volumes:
       - ${SIDEBAR_DIR}:/opt/www/:rw
+    environment:
+      - TZ=Asia/Shanghai
+    restart: on-failure
+    depends_on:
+      - mochat_init
+
+  operation:
+    build:
+      context: ./services/operation
+    container_name: operation
+    volumes:
+      - ${OPERATION_DIR}:/opt/www/:rw
     environment:
       - TZ=Asia/Shanghai
     restart: on-failure

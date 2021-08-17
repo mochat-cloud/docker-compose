@@ -13,7 +13,7 @@ WORKDIR /opt/www
 # # nginx镜像
 # FROM nginx
 # #引入build阶段编译的静态文件
-# COPY --from=build /opt/www/dist/ /opt/www/sidebar/dist/
+# COPY --from=build /opt/www/dist/ /opt/www/operation/dist/
 # # 暴露端口
 # EXPOSE 80
 
