@@ -23,10 +23,10 @@ mochat-cloud/docker-compose 下载目录为 /path/to/docker-compose；
 - 2.2 vhost配置，推荐使用 [SwitchHosts](https://github.com/oldj/SwitchHosts/blob/master/README_cn.md)
 
 ```
-127.0.0.1 backend.test
-127.0.0.1 dashboard.test
-127.0.0.1 sidebar.test
-127.0.0.1 operation.test
+127.0.0.1 api.mochat.com
+127.0.0.1 scrm.mochat.com
+127.0.0.1 sidebar.mochat.com
+127.0.0.1 op.mochat.com
 ```
 
 提示：
@@ -78,10 +78,10 @@ docker-compose up mochat_init
 
 ### 3.1 如果热更新
 - 后端PHP热更新，可以 `./servers/php/Dockerfile` 内改 `php /opt/www/bin/hyperf.php start` 为 `php /opt/www/bin/hyperf.php server:watch`
-- 前端热更新建议在宿主机 `npm run dev`，接口调试地址为 `http://backend.test`
+- 前端热更新建议在宿主机 `npm run dev`，接口调试地址为 `http://api.mochat.com`
 
 ### 3.2 登陆
-- 在浏览器输入 dashboard.test
+- 在浏览器输入 http://scrm.mochat.com
 - 默认的用户名密码: `18888888888` / `123456`
 - 进入项目，在`系统设置` -> `授权管理` 中点击 `添加企业微信号`
 - 如果您没有企业微信号，您可以到企业微信官网网站注册调试用的`企业微信号`
